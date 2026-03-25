@@ -1,18 +1,18 @@
 name: Bartosz CI/CD pipeline
 
-on:
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Target environment'
-        required: true
-        default: 'development'
 
 on:
     push:
       branches:
         - master
     pull_request:
+
+    workflow_dispatch:
+      inputs:
+        environment:
+          description: 'Target environment'
+          required: true
+          default: 'development'
 
 jobs:
   run-the-tests:
