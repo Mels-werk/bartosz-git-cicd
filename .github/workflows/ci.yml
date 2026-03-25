@@ -40,5 +40,13 @@ jobs:
       - name: Run tests
         run: pytest ./tests/account_tests.py --junitxml=results${{ matrix.python-version }}.xml
 
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: (!cancelled())
+        with:
+          files: |
+            results${{ matrix.python-version }}.xml
+                        
+
 
         
