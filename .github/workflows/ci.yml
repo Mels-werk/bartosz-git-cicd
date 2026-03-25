@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        python-version: ["3.11", "3.12", "3.13"]
+        python-version: ["3.11", "3.12", "3.13", "3.14"]
 
     permissions:
       checks: write
@@ -27,6 +27,7 @@ jobs:
         uses: actions/setup-python@v6
         with:
             python-version: ${{ matrix.python-version }}
+	run: echo "$python-version"
 
       - name: Install dependencies
         run: pip install -r requirements.txt
